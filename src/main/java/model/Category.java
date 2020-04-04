@@ -14,4 +14,5 @@ public class Category implements ModelClass {
     private int id;
     @Column(name = "CAT_NAME")
     private String name;
+
 }

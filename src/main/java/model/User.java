@@ -1,6 +1,8 @@
 package model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -8,6 +10,8 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 @NamedQueries({@NamedQuery(name = "user.select", query = "Select u from User u where u.email=:email")})
+@EqualsAndHashCode(exclude = "address")
+@ToString(exclude = "address")
 public class User implements ModelClass {
 
     @Id
@@ -24,7 +28,7 @@ public class User implements ModelClass {
     private String email;
     @Column(name = "USR_BIRTH_DATE")
     private LocalDateTime birthDate;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USR_ADD_ID", referencedColumnName = "ADD_ID")
     private Address address;
     @Transient

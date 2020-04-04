@@ -1,6 +1,5 @@
 package model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,5 +16,6 @@ public class Country implements ModelClass {
     private String name;
     @Column(name = "CO_ALIAS")
     private String alias;
+
 
 }

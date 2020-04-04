@@ -9,7 +9,7 @@ public class przyklad3 {
 
         Query<Order> query = session.createQuery("select o from Order o where o.id=:id", Order.class)
                 .setParameter("id", 2);
-        query.getResultList().forEach(order -> System.out.println(order.getOrderDate()));
+        query.getResultList().forEach(order -> System.out.println(order.getUser()));
 
         System.out.println("Po Pierwszym Query");
 
