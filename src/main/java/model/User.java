@@ -6,6 +6,8 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -33,6 +35,8 @@ public class User implements ModelClass {
     private Address address;
     @Transient
     private String fullName;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    Set<Order> orders = new HashSet<>();
 
     public String getFullName(){
         return fullName = firstName + " "+lastName;
