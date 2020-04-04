@@ -31,8 +31,8 @@ public class Order implements ModelClass {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "cart",
-    joinColumns = {@JoinColumn(name = "CRT_PRO_ID")},
-    inverseJoinColumns = {@JoinColumn(name = "CRT_ORD_ID")})
+    joinColumns = {@JoinColumn(name = "CRT_ORD_ID")},
+    inverseJoinColumns = {@JoinColumn(name = "CRT_PRO_ID")})
     private Set<Product> products = new HashSet<>();
 
 
